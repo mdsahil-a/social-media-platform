@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+
+<link rel="stylesheet" href="../css/profileStyle.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Playwrite+AU+QLD:wght@100..400&display=swap');
+
+/*
+ * === STYLISH PROFILE PAGE CSS ===
+ * This file styles the HTML provided by the user.
+ */
+
+/* === 1. FONT IMPORT & VARIABLES === */
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Playwrite+AU+QLD:wght@100..400&display=swap');
+
+:root {
+    --bg-dark-primary: #1a1a1e;   /* Dark page background */
+    --bg-dark-secondary: #25252a; /* Card background */
+    --bg-dark-tertiary: #1f1f23;  /* Stats background */
+    --primary-color: #3d5afe;   /* A nice blue accent */
+    --light-text: #f0f0f0;       /* Main text */
+    --dark-text: #a0a0a0;        /* Secondary text (email, bio) */
+    --border-color: #3a3a3a;
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --font-main: 'Jost', sans-serif;
+}
+
+/* === 2. GLOBAL & BODY RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark-primary);
+    color: var(--light-text);
+    /* This centers the profile card on the page */
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* === 3. THE MAIN PROFILE CARD === */
+.wrapper {
+    width: 100%;
+    max-width: 420px; /* A good width for a profile card */
+    background-color: var(--bg-dark-secondary);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    /* Center-align all content inside the card */
+    text-align: center;
+    position: relative; /* Crucial for positioning the edit button & menu */
+    overflow: hidden; /* Keeps sharp corners from the edit menu */
+}
+
+/* === 4. PROFILE IMAGE === */
+.image_div {
+    margin-bottom: 20px;
+}
+
+#currentPic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover; /* Prevents the image from being stretched */
+    border: 4px solid var(--primary-color);
+    /* Adds a subtle glow */
+    box-shadow: 0 0 20px rgba(61, 90, 254, 0.4);
+    background-color: var(--border-color); /* Placeholder color if image fails */
+}
+
+/* === 5. NAMES & EDIT BUTTON === */
+.names {
+    margin-bottom: 15px;
+    position: relative; /* This is the anchor for the #edit button */
+}
+
+#profileName {
+    font-size: 2rem; /* 32px */
+    font-weight: 600;
+    display: block; /* Ensures it takes its own line */
+}
+
+#userName {
+    font-size: 1.1rem;
+    color: var(--dark-text);
+    font-weight: 400;
+}
+
+#edit {
+    /* This positions the button inside the .names container */
+    position: absolute;
+    top: 5px;   /* Aligns with the profile name */
+    right: 5px; /* Puts it on the far right */
+    
+    background: none;
+    border: none;
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 5px;
+    font-family: var(--font-main); /* Ensure font is consistent */
+}
+
+#edit:hover {
+    color: var(--primary-color);
+}
+
+#edit i {
+    margin-left: 5px; /* Space between "Edit" text and icon */
+}
+
+/* === 6. BIO SECTION === */
+#bio {
+    font-size: 0.95rem;
+    color: var(--dark-text);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    /* Constrain the width slightly for readability */
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === 7. SOCIAL STATS === */
+.social_act {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bg-dark-tertiary);
+    border-radius: 12px;
+    padding: 20px 10px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.box {
+    text-align: center;
+    flex: 1; /* Makes each box take up equal space */
+}
+
+/* Adds a divider line between the boxes */
+.box + .box {
+    border-left: 1px solid var(--border-color);
+}
+
+.num_data {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--light-text);
+    display: block; /* Ensures it's on its own line */
+}
+
+.data {
+    font-size: 0.8rem;
+    color: var(--dark-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* === 8. FOLLOW BUTTON === */
+#follow_button {
+    width: 100%;
+    padding: 15px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#follow_button:hover {
+    opacity: 0.85;
+    /* Lifts the button slightly */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(61, 90, 254, 0.4);
+}
+
+/* === 9. EDIT MENU (HIDDEN BY DEFAULT) === */
+
+/* This class is from your HTML */
+.hidden {
+    display: none !important; /* Use !important to ensure it overrides */
+}
+
+.edit_menu {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Creates a "glass" effect */
+    background-color: rgba(37, 37, 42, 0.95);
+    backdrop-filter: blur(5px);
+    
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 16px; /* Match the parent card's radius */
+}
+
+#fileInput {
+    font-family: var(--font-main);
+    color: var(--dark-text);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Style the "Choose File" button */
+#fileInput::file-selector-button {
+    padding: 10px 20px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+#fileInput::file-selector-button:hover {
+    opacity: 0.85;
+}
+
+#change_button {
+    padding: 12px 30px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--light-text);
+    background-color: var(--border-color); /* A more neutral color */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#change_button:hover {
+    background-color: #4a4a4a;
+}
+
+.postsSection {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.postsHeader {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--light-text);
+    text-align: center;
+}
+
+.postsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.postItem {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.postItem:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-color);
+}
+
+.postItem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.deletePostBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(244, 67, 54, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 14px;
+}
+
+.postItem:hover .deletePostBtn {
+    opacity: 1;
+}
+
+.deletePostBtn:hover {
+    background-color: rgba(211, 47, 47, 1);
+}
+
+.emptyPosts {
+    text-align: center;
+    color: var(--dark-text);
+    padding: 40px 20px;
+    font-size: 1.1rem;
+}
+
+.postsContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.postsContainer::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.postsContainer::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+</style>
+<body>
+
+<div class="wrapper">
+
+<div class="edit_menu hidden">
+    <input type="file" id="fileInput" accept="image/*" >
+    <!-- <input type="text" placeholder="Name" id="p_name">
+   <textarea name="bio" id="p_bio" placeholder="Bio"></textarea> -->
+    <button id="change_button">Change</button>
+</div>
+
+    <!-- image section -->
+<div class="image_div">
+    <img src="../../public/avatar.jpeg" id="currentPic" alt="">
+</div>
+ 
+<!-- Names section -->
+<div class="names ">
+
+    <span id="profileName">User Name</span>
+    
+    <button id="edit">Edit<i class="fa-solid fa-pen"></i></button>
+    <br>
+    <span id="userName">email</span>
+
+</div>
+
+<p id="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia placeat earum</p>
+
+<!-- Social activity section -->
+
+<div class="social_act">
+
+    <div class="box">
+        <span id="foll_no" class="num_data">1.2K</span><br>
+        <span id="followers" class="data">Followers</span>
+    </div>
+
+    <div class="box">
+        <span id="follw_no" class="num_data">150</span><br>
+        <span id="following" class="data">Following</span>
+    </div>
+
+    <div class="box">
+        <span id="posts_no" class="num_data">80</span><br>
+        <span id="posts" class="data">Posts</span>
+    </div>
+
+</div>
+<button id="follow_button" >Follow</button>
+
+<div class="postsSection">
+    <h2 class="postsHeader">My Posts</h2>
+    <div class="postsContainer" id="postsContainer">
+    </div>
+</div>
+
+</div>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../javascript/profilePage.js">
+     
+
+
+    </script>
+</body>
+</html>

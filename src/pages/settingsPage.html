@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="../css/settingsStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playwrite+AU+QLD:wght@100..400&display=swap');
+    </style>
+</head>
+<body>
+    <div class="settingsWrapper">
+        <div class="settingsContainer">
+            <div class="settingsHeader">
+                <h1><i class="fa-solid fa-gear"></i> Settings</h1>
+                <a href="dashBoard.html" class="backBtn"><i class="fa-solid fa-arrow-left"></i> Back</a>
+            </div>
+
+            <div class="settingsContent">
+                <div class="settingsSection">
+                    <h2><i class="fa-solid fa-palette"></i> Appearance</h2>
+                    
+                    <div class="settingItem">
+                        <div class="settingInfo">
+                            <label>Theme</label>
+                            <span>Switch between dark and light mode</span>
+                        </div>
+                        <div class="settingAction">
+                            <label class="themeToggle">
+                                <input type="checkbox" id="themeToggle">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="themeLabel" id="themeLabel">Dark Mode</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settingsSection">
+                    <h2><i class="fa-solid fa-user"></i> Profile Settings</h2>
+                    
+                    <div class="settingItem">
+                        <div class="settingInfo">
+                            <label for="profilePicInput">Profile Picture</label>
+                            <span>Update your profile picture</span>
+                        </div>
+                        <div class="settingAction">
+                            <img src="../../public/avatar.jpeg" alt="Profile" id="profilePreview" class="profilePreview">
+                            <input type="file" id="profilePicInput" accept="image/*" class="fileInput">
+                            <button id="updateProfilePic" class="actionBtn">Update</button>
+                        </div>
+                    </div>
+
+                    <div class="settingItem">
+                        <div class="settingInfo">
+                            <label for="fullNameInput">Full Name</label>
+                            <span>Change your display name</span>
+                        </div>
+                        <div class="settingAction">
+                            <input type="text" id="fullNameInput" class="textInput" placeholder="Enter your name">
+                            <button id="updateName" class="actionBtn">Update</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settingsSection">
+                    <h2><i class="fa-solid fa-lock"></i> Security Settings</h2>
+                    
+                    <div class="settingItem">
+                        <div class="settingInfo">
+                            <label for="currentPassword">Current Password</label>
+                            <span>Enter your current password</span>
+                        </div>
+                        <div class="settingAction">
+                            <input type="password" id="currentPassword" class="textInput" placeholder="Current password">
+                        </div>
+                    </div>
+
+                    <div class="settingItem">
+                        <div class="settingInfo">
+                            <label for="newPassword">New Password</label>
+                            <span>Enter your new password (min 6 characters)</span>
+                        </div>
+                        <div class="settingAction">
+                            <input type="password" id="newPassword" class="textInput" placeholder="New password">
+                        </div>
+                    </div>
+
+                    <div class="settingItem">
+                        <div class="settingInfo">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <span>Confirm your new password</span>
+                        </div>
+                        <div class="settingAction">
+                            <input type="password" id="confirmPassword" class="textInput" placeholder="Confirm password">
+                            <button id="changePassword" class="actionBtn">Change Password</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settingsSection">
+                    <h2><i class="fa-solid fa-right-from-bracket"></i> Account Actions</h2>
+                    
+                    <div class="settingItem">
+                        <div class="settingInfo">
+                            <label>Logout</label>
+                            <span>Sign out of your account</span>
+                        </div>
+                        <div class="settingAction">
+                            <button id="logoutBtn" class="actionBtn logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loadingOverlay hidden" id="loadingOverlay">
+                <div class="spinner"></div>
+                <p>Processing...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../javascript/settingsPage.js"></script>
+</body>
+</html>
+

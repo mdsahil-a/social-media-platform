@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/responive.dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playwrite+AU+QLD:wght@100..400&display=swap');
+
+</style>
+
+
+<body>
+
+      <div class="loading_wrapper hidden">
+          <div id="spinner"></div>
+    <h1 id="loading_message">Loading . . .</h1>
+    </div>
+<section class="comment_section hidden">
+        
+<div class="userComments">
+
+</div>
+
+<div class="addComment">
+    <input type="text" placeholder="Type a comment...." id="myComment">
+    <button id="doneComment">Done</button>
+</div>
+       </section>
+    
+    <div class="wrapper">
+<nav>
+
+
+    <div class="userDetails">
+    <img src="../../public/avatar.jpeg" alt="" id="currentUser_profile">
+    <span id="current_user"></span>
+
+
+</div>
+
+
+<div class="logo_section">
+
+    <img src="../../public/logo4.png" id="appLogo" alt="">
+            <section class="createPostSection ">
+   <input type="file" id="postFile">
+   <button id="createPost">Create a post</button>
+   
+</section>
+</div>
+
+
+
+<div class="info_list">
+    <a href=""><i class="fa-solid fa-house"></i></a>
+    <a id="friends"><i class="fa-solid fa-user-group"></i></a>
+    <a id="friendsAppend"><i class="fa-solid fa-address-card"></i></a>
+    <a href="settingsPage.html"><i class="fa-solid fa-wrench"></i></a>
+    
+</div> 
+
+<div class="searchSection"> 
+    <input type="search"  placeholder="Search..." id="search">
+    
+    <div class="results ">
+        
+        
+    </div>
+</div>
+
+</nav>
+<div class="preview_wrapper hidden">
+
+
+
+   <div class="previewDiv ">
+    <label for="" id="cancelPost">X</label>
+    <img src="" alt="" id="uploadSelectedImg">
+<textarea id="post_caption" placeholder="Add caption..." rows="3"></textarea>
+    <button id="uploadButton">Upload</button>
+
+   </div>
+</div>
+<div class="mainContent_wrapper">
+
+    <div class="leftSection"></div>
+<div class="posts">
+
+
+</div>
+<div class="rightSection">
+
+
+</div>
+    </div>
+
+    <section class="friends hidden">
+        <h1 id="friendsSectionTitle">Friends</h1>
+        <div class="friendsList">
+        </div>
+    </section>
+
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../javascript/dashBoard.js"></script>
+</body>
+</html>

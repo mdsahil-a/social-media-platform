@@ -1,0 +1,100 @@
+@media (max-width:568px){
+
+    body{
+        position: relative;
+    }
+.logo_section{
+    scale: 0.7;
+}
+.info_list{
+    gap:20px;
+    width: 80%;
+    margin-top:10px;
+}
+.info_list a{
+    height: 0.5rem;
+    width: 0.5rem;
+    font-size:15px;
+}
+.info span a {
+    font-size:10px;
+}
+.searchSection{
+
+    position: absolute;
+    width: 10rem;
+  
+    right: 0;
+    bottom: 0;
+}
+#search{
+    height: 1.5rem;
+    margin-bottom: 10px;
+    margin-right:5px;
+}
+
+nav{
+    justify-content: start;
+    align-items: start;
+    position: relative;
+    
+ 
+  
+}
+.userDetails{
+
+    height: 4rem;
+    width: 3rem;
+}
+
+.previewDiv{
+    width: 20rem;
+    height: 35rem;
+    /* display: none; */
+}
+
+/* .preview_wrapper{
+    position: absolute;
+    border: 1px solid white;
+    height: 100%;
+    width: 100%;
+}
+ */
+#current_user{
+    display: none;
+}
+.SearchedUserInfo{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    padding:5px;
+    align-items: center;
+    font-size: 13px;
+    
+    border:2px solid var(--borderColor);
+}
+.searchedUserDetails{
+    display: flex;
+    flex-direction: row;
+    height:2.5rem;
+    align-items: center;
+    gap:5px;
+}
+#searchedUserProfile{
+    height:1.5rem;
+    width:1.5rem;
+    border-radius:50%;
+}
+#addFriend{
+    width:3.3rem;
+    height:1.75rem;
+    color:rgb(238, 234, 234);
+    border:none;
+    border-radius:3px;
+    box-shadow:0 0 10px black;
+    background-color: rgb(25, 25, 158);
+    cursor:pointer;
+    transition: 0.25s;
+    font-size: 10px;
+}
+}
