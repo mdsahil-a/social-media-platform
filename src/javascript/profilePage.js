@@ -7,7 +7,8 @@ const currentPic=document.querySelector("#currentPic");
 const email=document.querySelector("#userName");
 const postsContainer=document.querySelector("#postsContainer");
 const postsNo=document.querySelector("#posts_no");
-const url="http://localhost:3000";
+// const url="http://localhost:3000";
+const url="https://socialmedia-platform-server.onrender.com";
 
 let userId = null;
 
@@ -144,3 +145,4 @@ const deletePost = async (postId) => {
     alert("Error deleting post");
   }
 };
+
