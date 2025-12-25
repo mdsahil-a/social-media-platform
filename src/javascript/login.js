@@ -1,5 +1,6 @@
 const loginButton=document.querySelector("#loginButton");
-const url="http://localhost:3000"
+// const url="http://localhost:3000";
+const url="https://socialmedia-platform-server.onrender.com";
 loginButton.addEventListener("click",async(event)=>{
 event.preventDefault();
  
@@ -24,5 +25,6 @@ catch(error){
     showToast(error.response?.data?.message || error.message,"error");
 }
 })
+
 
 
