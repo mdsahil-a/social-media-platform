@@ -29,8 +29,8 @@ const loading_message=document.querySelector("#loading_message");
 let token=null;
 let userId=null;
 let idPost=null;
-const url="http://localhost:3000"
-// const url="https://socialmedia-platform-server.onrender.com";
+// const url="http://localhost:3000";
+const url="https://socialmedia-platform-server.onrender.com";
 
 
 window.onload=async ()=>{
@@ -523,5 +523,6 @@ catch(error){
   console.log("Error in find user :",error.message);
 }
 }
+
 
 
