@@ -1,4 +1,5 @@
-const url = "http://localhost:3000";
+// const url = "http://localhost:3000";
+const url="https://socialmedia-platform-server.onrender.com";
 
 let token = null;
 let userId = null;
